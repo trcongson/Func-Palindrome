@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Func-Palindrome</title>
+</head>
+<body>
+<input id="in" align="center" placeholder="enter word" type="text" value="">
+<script>
+    //Gán hành động placeholder
+    let input = document.getElementById("in");
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            if (input.value === "") {
+                alert("đã nhập gì đâu???")
+            }
+            (isPalindrome(input.value)) ? alert("có palindrome") : alert("không palidrome");
+            input.value = "";
+        }
+    });
+
+    //Hàm so sánh chữ cái đầu và cuối, hàm shift sẽ trả về phần tử đầu tiên,hàm pop trả về phần tử cuối cùng
+    function isPalindrome(string) {
+        let palindrome = true;
+        let word = string.split("");
+        while (word.length > 1) {
+            if (word.shift() !== word.pop()) {
+                palindrome = false;
+                break;
+            }
+        }
+        return palindrome;
+    }
+</script>
+</body>
+</html>
